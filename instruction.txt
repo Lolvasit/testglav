@@ -1,0 +1,12 @@
+Всі боти повинні бути на одному хостингу. Щоб добавити бота, потрібно скопіювати папку bot1, змінити назву і вписати правильні дані в config.py в цій папці. Після цього отрібно зайти в main.py в основній папці і найти ці строчки в конці файлу:
+if __name__ == '__main__':
+    from bot1.main import dp as dp2
+    dps = [dp, dp2]
+    scheduler.start()
+    asyncio.run(start_polling(dps))
+    # executor.start_polling(dp, skip_updates=True)
+
+Щоб добавити бота в головного бота після from bot1.main import dp as dp2 напишіть
+from назва_папки.main import dp as dp3 (замість )
+потім в наступній строчці добавити dp3 щоб бот міг запуститись
+dps = [dp, dp2, dp3]
